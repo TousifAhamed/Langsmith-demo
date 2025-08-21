@@ -168,3 +168,6 @@ cython_debug/
 Thumbs.db
 ehthumbs.db
 Desktop.ini
+
+# Large files (optional - uncomment if you want to exclude large PDFs)
+# *.pdf

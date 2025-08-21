@@ -4,3 +4,12 @@ python-dotenv
 langchain_community
 langchain-groq 
 langchain-core
+# For PDF processing
+pypdf
+
+# HuggingFace Embeddings (free, no API key required)
+langchain-huggingface
+sentence-transformers
+
+# Vector store
+faiss-cpu
