@@ -169,10 +169,5 @@ Thumbs.db
 ehthumbs.db
 Desktop.ini
 
-# Generated indices and vector stores
+# FAISS indices (generated vector store files)
 .indices/
-*.faiss
-*.pkl
-
-# Large files (optional - uncomment if you want to exclude large PDFs)
-# *.pdf

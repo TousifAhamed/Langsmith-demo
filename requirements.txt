@@ -13,3 +13,8 @@ sentence-transformers
 
 # Vector store
 faiss-cpu
+
+# For agents and tools
+langchain-hub
+duckduckgo-search
+requests
