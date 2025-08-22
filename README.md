@@ -1,25 +1,21 @@
 # LangSmith Demo
 
-A comprehensive demonstration of using LangChain with Groq API for various AI applications including simple LLM calls, sequential chains, and RAG (Retrieval-Augmented Generation) implementations.
+A simple demonstration of using LangChain with Groq API for language model interactions.
 
 ## Description
 
-This project showcases multiple LangChain implementations:
-- Basic LLM interactions with Groq API
-- Sequential chain processing
-- RAG (Retrieval-Augmented Generation) with PDF documents
-- Vector embeddings using HuggingFace models
-- Integration with LangSmith for tracing and monitoring
+This project demonstrates a basic LLM (Large Language Model) call using LangChain and Groq API. It includes a simple chain that processes questions and returns responses.
 
 ## Features
 
-- **Simple LLM Chain**: Basic question-answering using Groq API
-- **Sequential Chains**: Multi-step processing workflows
-- **RAG Implementation**: Document-based question answering with PDF support
-- **Free Embeddings**: Using HuggingFace sentence-transformers (no API key required)
-- **Vector Storage**: FAISS for efficient similarity search
-- **LangSmith Integration**: Tracing and monitoring capabilities
-- **Environment Management**: Secure API key handling
+- Simple LLM chain using LangChain
+- Integration with Groq API
+- RAG (Retrieval-Augmented Generation) implementations with PDF processing
+- Intelligent caching system for vector embeddings
+- Agent-based interactions with tools (weather, search)
+- Environment variable management with python-dotenv
+- LangSmith tracing integration
+- Structured prompt templates
 
 ## Installation
 
@@ -56,42 +52,58 @@ GROQ_API_KEY=your_groq_api_key_here
 
 ## Usage
 
-### 1. Simple LLM Call
+### Available Scripts:
+
+1. **Simple LLM Call**:
 ```bash
 python 1_simple_llm_call.py
 ```
 
-### 2. Sequential Chain Processing
+2. **Sequential Chain Example**:
 ```bash
 python 2_sequential_chain.py
 ```
 
-### 3. RAG (Retrieval-Augmented Generation)
+3. **RAG (Retrieval-Augmented Generation)**:
 ```bash
-# Basic RAG implementation
-python 3_rag_v1.py
+python 3_rag_v1.py     # Basic RAG implementation
+python 3_rag_v2.py     # Enhanced RAG version
+python 3_rag_V3.py     # Advanced RAG features  
+python 3_rag_V4.py     # RAG with intelligent caching
+```
 
-# Enhanced RAG version
-python 3_rag_v2.py
-
-# Latest RAG with LangSmith tracing
-python 3_rag_V3.py
+4. **Agent with Tools**:
+```bash
+python 4_rag_agent.py  # Agent with weather and search capabilities
 ```
 
 ## Project Structure
 
 ```
-├── 1_simple_llm_call.py    # Basic LLM interaction with Groq
-├── 2_sequential_chain.py   # Sequential chain processing
-├── 3_rag_v1.py             # Basic RAG with HuggingFace embeddings
-├── 3_rag_v2.py             # Enhanced RAG implementation  
-├── 3_rag_V3.py             # Latest RAG with LangSmith tracing
+├── 1_simple_llm_call.py    # Basic LLM call demonstration
+├── 2_sequential_chain.py   # Sequential chain implementation
+├── 3_rag_v1.py            # Basic RAG with PDF processing
+├── 3_rag_v2.py            # Enhanced RAG version
+├── 3_rag_V3.py            # Advanced RAG features
+├── 3_rag_V4.py            # RAG with intelligent caching & tracing
+├── 4_rag_agent.py         # Agent with weather & search tools
 ├── requirements.txt        # Python dependencies
-├── Vision AI .pdf          # Sample PDF for RAG testing
-├── .env                    # Environment variables (not included in repo)
-├── .gitignore             # Git ignore file
-└── README.md              # This file
+├── .env                   # Environment variables (not in repo)
+├── .gitignore            # Git ignore file
+├── Vision AI .pdf         # Sample PDF for RAG examples
+└── README.md             # This file
 ```
+
+## Dependencies
+
+The project includes several key dependencies:
+- **langchain & langchain-groq**: Core LangChain framework and Groq integration
+- **langchain-huggingface**: Free embedding models via HuggingFace
+- **sentence-transformers**: Local embedding computation
+- **faiss-cpu**: Vector similarity search
+- **pypdf**: PDF document processing
+- **duckduckgo-search**: Web search capabilities for agents
+- **langsmith**: LLM application monitoring and tracing
 
 ## Requirements
 
