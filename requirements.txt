@@ -15,6 +15,6 @@ sentence-transformers
 faiss-cpu
 
 # For agents and tools
-langchain-hub
+langchainhub
 duckduckgo-search
 requests

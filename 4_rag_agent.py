@@ -7,6 +7,8 @@ from langchain import hub
 from dotenv import load_dotenv
 import os
 
+os.environ["LANGCHAIN_PROJECT"] = 'ReAct Agents'
+
 load_dotenv()
 
 search_tool = DuckDuckGoSearchRun()
@@ -24,9 +26,9 @@ def get_weather_data(city: str) -> str:
 
 # Use ChatGroq instead of ChatOpenAI
 llm = ChatGroq(
-    model="llama-3.1-70b-versatile",
+    model="openai/gpt-oss-120b",  
     api_key=os.getenv("GROQ_API_KEY"),
-    temperature=0.1
+    temperature=0.1,
 )
 
 # Step 2: Pull the ReAct prompt from LangChain Hub
@@ -44,15 +46,22 @@ agent_executor = AgentExecutor(
     agent=agent,
     tools=[search_tool, get_weather_data],
     verbose=True,
-    max_iterations=5
+    max_iterations=5,
+    handle_parsing_errors=True  # This will handle parsing errors gracefully
 )
 
 # What is the release date of Dhadak 2?
 # What is the current temp of gurgaon
 # Identify the birthplace city of Kalpana Chawla (search) and give its current temperature.
 
-# Step 5: Invoke
-response = agent_executor.invoke({"input": "What is the current temp of gurgaon"})
-print(response)
-
-print(response['output'])
+# Step 5: Invoke with error handling
+try:
+    # Test with a simpler question first
+    response = agent_executor.invoke({"input": "What is 2+2?"})
+    print("=== RESPONSE ===")
+    print(response)
+    print("\n=== OUTPUT ===")
+    print(response['output'])
+except Exception as e:
+    print(f"Error occurred: {e}")
+    print("This might be due to rate limits or parsing issues. Try again in a moment.")
